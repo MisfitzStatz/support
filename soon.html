@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This Misfitz Support page is currently in development.">
+    <title>Page in Development - Misfitz Support</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div id="header"></div>
+
+    <main class="container">
+        <section class="article">
+            <div id="pageContent"></div>
+        </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="/script.js"></script>
+
+    <script>
+        const pageTranslations = {
+            en: {
+                title: "Page in Development",
+                message: "This page is currently in development. Check back later!",
+                button: "Back to Homepage"
+            },
+            de: {
+                title: "Seite in Entwicklung",
+                message: "Diese Seite befindet sich noch in Entwicklung. Schau später wieder vorbei!",
+                button: "Zur Startseite"
+            },
+            es: {
+                title: "Página en desarrollo",
+                message: "Esta página todavía está en desarrollo. ¡Vuelve más tarde!",
+                button: "Volver al inicio"
+            },
+            fr: {
+                title: "Page en développement",
+                message: "Cette page est encore en développement. Revenez plus tard !",
+                button: "Retour à l’accueil"
+            },
+            ru: {
+                title: "Страница в разработке",
+                message: "Эта страница ещё находится в разработке. Загляните позже!",
+                button: "На главную"
+            }
+        };
+
+        function renderPage() {
+            const hash = window.location.hash
+                .replace("#", "")
+                .toLowerCase();
+
+            const browserLanguage =
+                (navigator.language || "en").toLowerCase();
+
+            const language = pageTranslations[hash]
+                ? hash
+                : pageTranslations[browserLanguage.split("-")[0]]
+                    ? browserLanguage.split("-")[0]
+                    : "en";
+
+            const t = pageTranslations[language];
+
+            document.documentElement.lang = language;
+            document.title = `${t.title} - Misfitz Support`;
+
+            document.getElementById("pageContent").innerHTML = `
+                <h1>${t.title}</h1>
+                <p>${t.message}</p>
+                <a class="button-link" href="/">${t.button}</a>
+            `;
+        }
+
+        renderPage();
+        window.addEventListener("hashchange", renderPage);
+    </script>
+</body>
+</html>

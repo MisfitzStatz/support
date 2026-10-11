@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>404 - Page Not Found - Misfitz Support</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div id="header"></div>
+
+    <main class="container">
+        <section class="article">
+            <div id="pageContent"></div>
+        </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="/script.js"></script>
+
+    <script>
+        const pageTranslations = {
+            en: {
+                title: "404 - Page Not Found",
+                message: "The page you are looking for does not exist or may have been moved.",
+                button: "Back to Homepage"
+            },
+            de: {
+                title: "404 - Seite nicht gefunden",
+                message: "Die gesuchte Seite existiert nicht oder wurde möglicherweise verschoben.",
+                button: "Zur Startseite"
+            },
+            es: {
+                title: "404 - Página no encontrada",
+                message: "La página que buscas no existe o puede haber sido trasladada.",
+                button: "Volver al inicio"
+            },
+            fr: {
+                title: "404 - Page introuvable",
+                message: "La page recherchée n’existe pas ou a peut-être été déplacée.",
+                button: "Retour à l’accueil"
+            },
+            ru: {
+                title: "404 - Страница не найдена",
+                message: "Запрашиваемая страница не существует или была перемещена.",
+                button: "На главную"
+            }
+        };
+
+        function renderPage() {
+            const hash = window.location.hash
+                .replace("#", "")
+                .toLowerCase();
+
+            const browserLanguage =
+                (navigator.language || "en").toLowerCase();
+
+            const language = pageTranslations[hash]
+                ? hash
+                : pageTranslations[browserLanguage.split("-")[0]]
+                    ? browserLanguage.split("-")[0]
+                    : "en";
+
+            const t = pageTranslations[language];
+
+
+            document.documentElement.lang = language;
+            document.title = `${t.title} - Misfitz Support`;
+
+            document.getElementById("pageContent").innerHTML = `
+                <h1>${t.title}</h1>
+                <p>${t.message}</p>
+                <a class="button-link" href="/">${t.button}</a>
+            `;
+        }
+
+        renderPage();
+        window.addEventListener("hashchange", renderPage);
+    </script>
+</body>
+</html>

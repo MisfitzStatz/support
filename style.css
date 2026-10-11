@@ -420,27 +420,122 @@ main {
     height: auto;
 }
 
-/*Notice*/
+/* =========================================================
+   NOTICE
+   ========================================================= */
 
 .notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
     margin: 24px 0;
     padding: 16px 18px;
+
     border: 1px solid #d6ad2c;
     border-radius: 10px;
+
     background: #fff4c2;
     color: #3d3300;
 }
 
-.notice strong {
+.notice-icon {
+    flex: 0 0 auto;
+
+    width: 20px;
+    height: 20px;
+
+    margin-top: 1px;
+}
+
+.notice-icon svg {
+    display: block;
+
+    width: 20px;
+    height: 20px;
+}
+
+.notice-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.notice-content > strong {
     display: block;
     margin-bottom: 6px;
     color: #3d3300;
 }
 
+.notice p strong {
+    display: inline;
+    margin: 0;
+    color: inherit;
+}
+
 .notice p {
     margin: 0;
+
     color: #3d3300;
 }
+
+
+/* =========================================================
+   WARNING
+   ========================================================= */
+
+.warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    margin: 24px 0;
+    padding: 16px 18px;
+
+    border: 1px solid #c94a4a;
+    border-radius: 10px;
+
+    background: #ffe0e0;
+    color: #5a0000;
+}
+
+.warning-icon {
+    flex: 0 0 auto;
+
+    width: 20px;
+    height: 20px;
+
+    margin-top: 1px;
+}
+
+.warning-icon svg {
+    display: block;
+
+    width: 20px;
+    height: 20px;
+}
+
+.warning-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.warning strong {
+    display: block;
+    margin-bottom: 6px;
+
+    color: #5a0000;
+}
+
+.warning p {
+    margin: 0;
+
+    color: #5a0000;
+}
+
+
+/* =========================================================
+   DARK MODE - NOTICE
+   ========================================================= */
 
 :root[data-theme="dark"] .notice {
     background: #3b3200;
@@ -453,7 +548,29 @@ main {
     color: #fff4c2;
 }
 
+
+/* =========================================================
+   DARK MODE - WARNING
+   ========================================================= */
+
+:root[data-theme="dark"] .warning {
+    background: #3b1111;
+    border-color: #8f3b3b;
+    color: #ffd6d6;
+}
+
+:root[data-theme="dark"] .warning strong,
+:root[data-theme="dark"] .warning p {
+    color: #ffd6d6;
+}
+
+
+/* =========================================================
+   SYSTEM DARK MODE
+   ========================================================= */
+
 @media (prefers-color-scheme: dark) {
+
     :root:not([data-theme="light"]) .notice {
         background: #3b3200;
         border-color: #8f781b;
@@ -464,4 +581,33 @@ main {
     :root:not([data-theme="light"]) .notice p {
         color: #fff4c2;
     }
+
+
+    :root:not([data-theme="light"]) .warning {
+        background: #3b1111;
+        border-color: #8f3b3b;
+        color: #ffd6d6;
+    }
+
+    :root:not([data-theme="light"]) .warning strong,
+    :root:not([data-theme="light"]) .warning p {
+        color: #ffd6d6;
+    }
+}
+
+.button-link {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s ease;
+}
+
+.button-link:hover {
+    background: var(--surface-hover);
 }

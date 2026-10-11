@@ -39,13 +39,19 @@ const content = {
 
         emailNote: `
             <div class="notice">
-                <strong>Important</strong>
+                <div class="notice-icon">
+                    <i data-lucide="triangle-alert"></i>
+                </div>
 
-                <p>
-                    The email address you use for registration must exactly
-                    match the email address you use with your Apple ID for
-                    TestFlight or your Google account for Google Play.
-                </p>
+                <div class="notice-content">
+                    <strong>Important</strong>
+
+                    <p>
+                        The email address you use for registration must exactly
+                        match the email address you use with your Apple ID for
+                        TestFlight or your Google account for Google Play.
+                    </p>
+                </div>
             </div>
         `,
 
@@ -137,14 +143,20 @@ const content = {
 
         emailNote: `
             <div class="notice">
-                <strong>Wichtig</strong>
+                <div class="notice-icon">
+                    <i data-lucide="triangle-alert"></i>
+                </div>
 
-                <p>
-                    Die E-Mail-Adresse, die du bei der Registrierung verwendest,
-                    muss exakt mit der E-Mail-Adresse übereinstimmen, die du
-                    mit deiner Apple-ID für TestFlight oder deinem Google-Konto
-                    für Google Play verwendest.
-                </p>
+                <div class="notice-content">
+                    <strong>Wichtig</strong>
+
+                    <p>
+                        Die E-Mail-Adresse, die du bei der Registrierung verwendest,
+                        muss exakt mit der E-Mail-Adresse übereinstimmen, die du
+                        mit deiner Apple-ID für TestFlight oder deinem Google-Konto
+                        für Google Play verwendest.
+                    </p>
+                </div>
             </div>
         `,
 
@@ -220,6 +232,11 @@ function renderArticle() {
         ${t.animation}
     `;
 
+    if (typeof lucide !== "undefined") {
+        lucide.createIcons();
+    }
+
+    document.documentElement.lang = language;
     document.documentElement.lang = language;
 }
 
