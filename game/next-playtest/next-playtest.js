@@ -13,7 +13,7 @@ const content = {
             <h2>Where will playtests be announced?</h2>
 
             <p>
-                Global playtests are announced by the Misfitz studio through
+                Global playtests are announced by the Antiihero Studios through
                 its official social media platforms and the official Discord
                 server. Keep an eye on those channels for confirmed dates
                 and announcements.
@@ -53,7 +53,7 @@ const content = {
             <h2>Wo werden Playtests angekündigt?</h2>
 
             <p>
-                Globale Playtests werden vom Misfitz-Studio über seine
+                Globale Playtests werden vom Antiihero Studios über seine
                 offiziellen Social-Media-Plattformen und den offiziellen
                 Discord-Server angekündigt. Behalte diese Kanäle im Blick,
                 um bestätigte Termine und Ankündigungen nicht zu verpassen.
